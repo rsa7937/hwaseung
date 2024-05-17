@@ -203,9 +203,12 @@
 
 .heritage-con {
   background: #5f5;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  text-align: center;
 }
 .heritage-con h4 {
   font-weight: 900;
@@ -221,7 +224,6 @@
 .heritage-con p {
   margin-top: 4rem;
   font-size: 2.4rem;
-  text-align: center;
 }
 .heritage-con a {
   font-weight: 600;
@@ -257,7 +259,7 @@
 }
 .foot-menu ul {
   display: flex;
-  gap: 14rem;
+  gap: 6rem;
 }
 .foot-menu ul li {
   border: 1px solid #ff0;
@@ -339,4 +341,255 @@
 }
 .sns-list > a.instagram {
   background-image: url(../img/ico-instagram.svg);
+}
+
+/* .inner 크기와 같은 분기점 생성 */
+@media (max-width: 1600px) {
+  .inner,
+  .inner-wide {
+    width: 92.4rem;
+    width: 90.2344%;
+  }
+
+  .foot-menu {
+    gap: 7rem;
+  }
+}
+
+/* 태블릿 디자인 */
+@media (max-width: 1024px) {
+  /* .inner,
+  .inner-wide {
+    width: 92.4rem;
+    width: 90.2344%;
+  } */
+
+  /* Section 002 : business | 사업 분야 */
+  .business-list li a {
+    font-size: 1.8rem;
+  }
+
+  /* Section 003 : pr | PR Room */
+  .pr-list li {
+    height: 33.2rem;
+  }
+
+  /* Section 005 : heritage | Heritage of Hwaseung */
+  .heritage-con {
+    width: 71.4rem;
+    width: 77.2727%;
+    margin: 0 auto;
+  }
+  .heritage-con strong {
+    font-size: 3.2rem;
+  }
+  .heritage-con p {
+    font-size: 2.2rem;
+  }
+
+  /* footer */
+  .foot-links {
+    width: 82.4rem;
+    width: 89.1775%;
+    margin: 0 auto;
+  }
+
+  .foot-menu ul {
+    gap: 4.4rem;
+  }
+
+  .foot-menu ul li dl dt {
+    font-size: 1.8rem;
+  }
+  .foot-menu ul li dl dd {
+    font-size: 1.6rem;
+  }
+  .family-site {
+    width: 24rem;
+    height: 3rem;
+    font-size: 1.4rem;
+  }
+  .policy-list li a {
+    font-size: 1.4rem;
+  }
+}
+
+/* 문제가 발생하는 해상도를 위한 분기 */
+@media (max-width: 1000px) {
+  #header nav {
+    justify-content: space-between;
+  }
+  .gnb {
+    display: none;
+  }
+  .business-list {
+    flex-wrap: wrap;
+  }
+  .business-list li {
+    flex: 1 1 30%;
+  }
+
+  .foot-links {
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5rem;
+  }
+
+  .foot-family {
+    align-items: center;
+  }
+
+  .sns-list {
+    order: -1;
+    margin-top: 0;
+  }
+
+  .family-site {
+    margin-top: 4rem;
+  }
+
+  .policy-list {
+    margin-top: 2.2rem;
+  }
+
+  .foot-copyright {
+    margin-top: 3.8rem;
+  }
+}
+/*모바일 디자인 */
+@media (max-width: 700px) {
+  :root {
+    font-size: 90%;
+  }
+
+  .inner,
+  .inner-wide {
+    width: 350px;
+    width: 89.7436%;
+  }
+
+  /* header */
+  #header nav {
+    height: 5.7rem;
+  }
+
+  .logo a {
+    width: 8.5rem;
+    height: 1.2rem;
+  }
+
+  .util .btn-lang {
+    width: 3.7rem;
+    height: 1.7rem;
+  }
+
+  .util .btn-menu {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  /* Section 001 : visual | 비주얼영역 */
+  .visual {
+    height: 54rem;
+  }
+  .visual-con h2 {
+    font-size: 3rem;
+  }
+  .visual-con a {
+    font-size: 1.3rem;
+    display: inline-block;
+    margin-top: 1.65rem;
+  }
+
+  /* common */
+  #container > section:not(.visual) {
+    padding: 9rem 0;
+  }
+  .sec-title h3 {
+    font-size: 1.2rem;
+  }
+  .sec-title p {
+    font-size: 2.2rem;
+    margin-top: 2.3rem;
+  }
+
+  /* Section 002 : business | 사업 분야 */
+  .business-list {
+    margin-top: 5rem;
+  }
+  .business-list li {
+    flex: 0 1 50%;
+    height: 21rem;
+  }
+  .business-list li a {
+    font-size: 1.5rem;
+  }
+  /* Section 003 : pr | PR Room */
+  .pr-list {
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+  .pr-list li {
+    flex: 1 1 48%;
+    height: 19.2rem;
+  }
+  .pr-list li a {
+    font-size: 1.4rem;
+  }
+  /* Section 005 : heritage | Heritage of Hwaseung */
+  .heritage-con {
+    width: 100%;
+  }
+  .heritage-con h4 {
+    font-size: 3rem;
+  }
+  .heritage-con strong {
+    font-size: 1.6rem;
+    margin-top: 3rem;
+  }
+  .heritage-con p {
+    font-size: 1.3rem;
+    margin-top: 3rem;
+  }
+  .heritage-con a {
+    /* background: #55f; */
+    font-size: 1.3rem;
+    width: 28.4rem;
+    width: 81.1429%;
+
+    height: 3.8rem;
+    border: 1px solid #000;
+    border-radius: 5rem;
+    justify-content: center;
+    padding: 1rem 1rem;
+
+    align-self: initial; /* 초기화 */
+    /* align-self: unset; */
+
+    margin-top: 4.6rem;
+  }
+
+  /* footer */
+  #footer {
+    padding: 6.3rem 0 8rem;
+  }
+  .foot-menu {
+    display: none;
+  }
+  .foot-links {
+    width: 19.4rem;
+    width: 55.4286%;
+    display: block;
+  }
+  .family-site {
+    width: 100%;
+    height: 3.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    font-size: 62.5%;
+  }
 }
