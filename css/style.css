@@ -194,10 +194,11 @@
   /* border: 1px solid #000; */
   height: 37rem;
   flex: 1 1 20%;
-
   background: no-repeat 0 0 / cover;
-
   transition: 0.4s;
+
+  position: relative;
+  overflow: hidden;
 }
 
 .business-list li:nth-child(1) {
@@ -215,12 +216,42 @@
 .business-list li:nth-child(5) {
   background-image: url(https://www.hwaseunggroup.com/kor/assets/img/main/busi_con05.png);
 }
+.business-list li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transition: 0.2s;
+}
+
 /* hover */
 .business-list li:hover {
   flex: 1 1 30%;
 }
+
 .business-list li:not(:hover) {
   flex: 1 1 17.5%;
+}
+
+.business-list li:hover::before {
+  opacity: 1;
+}
+
+.business-list li:hover .detail-info {
+  bottom: 0;
+  opacity: 1;
+  transition: 0.4s 0.2s;
+}
+
+.business-list li:hover span {
+  opacity: 0;
 }
 
 .business-list li a {
@@ -232,11 +263,32 @@
   justify-content: flex-end;
   align-items: center;
   padding: 2.7rem;
-  /* background: skyblue; */
 
   font-weight: 600;
   font-size: 2.6rem;
   color: #fff;
+}
+
+.detail-info {
+  /* background: tomato; */
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  padding: 2.7rem;
+
+  bottom: -150px;
+  opacity: 0;
+}
+
+.detail-info dt {
+  font-weight: 600;
+}
+
+.detail-info dd {
+  font-weight: 200;
+  font-size: 1.5rem;
+  margin-top: 1.8rem;
 }
 
 /* Section 003 : pr | PR Room */
