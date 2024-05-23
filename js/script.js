@@ -6,7 +6,24 @@ $(function () {
   const $submenu = $('.submenu-wrap');
   const $banner = $('.banner-slide');
   const $btnMenu = $('.btn-menu');
-  const duration = 100;
+  const duration = 200;
+
+  // Mobile GNB
+  const $btnMmenu = $('.btn-m-menu');
+  const $mSubmenu = $('.m-submenu-wrap');
+  const $dim = $('.dim');
+  const $btnClose = $('.btn-close');
+
+  // 모바일 메뉴 열기
+  $btnMmenu.on('click', function () {
+    $mSubmenu.addClass('active');
+    $dim.fadeIn(duration);
+  });
+  // 모바일 메뉴 닫기
+  $btnClose.add($dim).on('click', function () {
+    $mSubmenu.removeClass('active');
+    $dim.fadeOut(duration);
+  });
 
   // 마우스가 메뉴에 들어오면(mouseenter)
   $menu.on('mouseenter', function () {
