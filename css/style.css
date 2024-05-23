@@ -14,11 +14,27 @@
 
 /* Header */
 #header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
+}
+#header::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 9.5rem;
+  left: 0;
+  height: 0.1rem;
+  background: #f1f1f1;
+
+  opacity: 0;
+  transition: 0.4s;
+}
+#header.active::before {
+  opacity: 1;
+  z-index: 1;
 }
 
 #header::after {
@@ -37,6 +53,17 @@
 
 #header.active::after {
   transform: translateY(0%);
+}
+
+#header.active .logo a {
+  background-image: url(../img/logo_blue_01.png);
+}
+
+#header.active .gnb li a {
+  color: #000;
+}
+#header.active .btn-menu {
+  background-image: url(../img/ico-menu-b.svg);
 }
 
 #header nav > * {
@@ -60,8 +87,13 @@
 .submenu-wrap ul li dl dt {
   font-size: 2.2rem;
   font-weight: 600;
+  color: var(--title-color);
+}
+
+.submenu-wrap ul li.on dl dt {
   color: var(--main-color);
 }
+
 .submenu-wrap ul li dl dd {
   font-size: 1.8rem;
   line-height: 1.78;
@@ -128,7 +160,7 @@
 }
 .gnb li a {
   display: block;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   padding: 0 2.5rem;
 
   font-weight: 600;
@@ -149,7 +181,7 @@
   bottom: 0;
   left: 50%;
   width: 0%;
-  height: 2px;
+  height: 3px;
   background: var(--main-color);
   /* background: var(--main-color); */
   transition: 0.4s;
