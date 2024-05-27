@@ -72,6 +72,15 @@
 #header.active .gnb li a {
   color: #000;
 }
+#header.w-bg .btn-lang,
+#header.active .btn-lang {
+  background-image: url(../img/btn_language_black_01.png);
+}
+#header.w-bg .btn-lang::after,
+#header.active .btn-lang::after {
+  border-top-color: #000;
+}
+
 #header.w-bg .btn-m-menu,
 #header.w-bg .btn-menu,
 #header.active .btn-menu {
@@ -205,11 +214,55 @@
 
 .util {
   display: flex;
+  gap: 1rem;
+  position: relative;
 }
-.util .btn-lang {
-  width: 5.5rem;
+.btn-lang {
+  width: 4.4rem;
   height: 2.5rem;
-  background: url(../img/ico-lang.svg) no-repeat 0 0 / contain;
+  background: url(../img/btn_language_white_01.png) no-repeat 0 0 / contain;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn-lang::after {
+  content: '';
+  display: block;
+  /* width: 0.4rem;
+  height: 0.4rem;
+  background: #ff0; */
+
+  /* 삼각형 그리기 */
+  border: 4px solid transparent;
+  border-top-color: #fff;
+}
+
+.lang-select {
+  position: absolute;
+  top: 4rem;
+  left: 0.5rem;
+  background: #fff;
+  padding: 1rem;
+  height: 3.6rem;
+  border-radius: 4px;
+
+  display: none;
+}
+
+.lang-select::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-bottom-color: #fff;
+}
+.lang-select a {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--title-color);
+  text-decoration: underline;
 }
 .btn-menu {
   width: 2.5rem;
@@ -244,13 +297,62 @@
   background: #fff;
   z-index: 100;
   height: 100vh; /* 뷰포트의 세로크기 전체 */
-  padding: 5vw;
+  padding: 3rem 11.29%;
 
   transform: translateX(100%);
   transition: 0.4s;
 }
 .m-submenu-wrap.active {
   transform: translateX(0%);
+}
+
+.m-gnb {
+  background: #ff5;
+}
+.m-gnb > li {
+  border: 1px solid #000;
+  padding: 1.5rem 0;
+}
+.m-gnb > li > strong {
+  font-weight: 700;
+  font-size: 2.1rem;
+  color: var(--title-color);
+  /* padding: 1rem 0; */
+  padding: 1rem 2rem;
+  transition: 0.4s;
+  background: tomato;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.m-gnb > li.on > strong {
+  background: skyblue;
+}
+
+.m-gnb > li > strong::after {
+  content: '';
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: solid #000;
+  border-width: 2px 2px 0 0;
+
+  transform: rotate(135deg);
+  transition: 0.3s;
+}
+.m-gnb > li.on > strong::after {
+  transform: rotate(-45deg);
+}
+
+.m-gnb-sub {
+  margin-left: 4rem;
+  display: none;
+}
+.m-gnb-sub li a {
+  font-size: 1.8rem;
+  line-height: 1.5;
 }
 
 /* Section 001 : visual | 비주얼영역 */
@@ -300,24 +402,30 @@
   width: 100%;
 }
 
-.visual-con::after {
-  content: '';
-  display: block;
-  width: 100%;
-  width: 80.7143%; /* (1130/1400*100) */
-  height: 1px;
-  background: #fff;
-
-  position: absolute;
-  bottom: 1.2rem;
-  right: 0;
-}
 .visual-con h2 {
   font-weight: 700;
   font-size: 7rem;
   color: #fff;
   line-height: 1.2142;
   letter-spacing: -0.25px;
+}
+
+.visual-con h2 b {
+  /* border: 1px solid #ff0; */
+  position: relative;
+}
+
+.visual-con h2 b::after {
+  content: '';
+  display: block;
+  /* width: 100%; */
+  width: 1870%;
+  height: 1px;
+  background: #fff;
+
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.6rem;
 }
 
 .visual-con a {
