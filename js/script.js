@@ -17,6 +17,11 @@ $(function () {
   const $mGnbMenu = $('.m-gnb > li');
   const $mGnbSubmenu = $('.m-gnb-sub');
 
+  $('.m-lang-select > li').on('click', function () {
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+  });
+
   // 모바일용 메뉴를 클릭했을 때
   $mGnbMenu.on('click', function () {
     $(this).toggleClass('on');

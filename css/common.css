@@ -30,3 +30,8 @@ hr,
 body {
   font: 2rem 'Pretendard', sans-serif;
 }
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+}

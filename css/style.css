@@ -293,7 +293,7 @@
   top: 0;
   right: 0;
   /* width: 90%; */
-  width: 80%;
+  width: 86.1%;
   background: #fff;
   z-index: 100;
   height: 100vh; /* 뷰포트의 세로크기 전체 */
@@ -305,12 +305,47 @@
 .m-submenu-wrap.active {
   transform: translateX(0%);
 }
-
+.btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-left-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  /* border: 1px solid #000; */
+}
+.btn-home {
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url(https://www.hwaseunggroup.com/kor/assets/img/common/icon_navi_home_black.svg) no-repeat 50% / contain;
+}
+.m-lang-select {
+  display: flex;
+  gap: 1.2rem;
+}
+.m-lang-select li a {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #bbbbbb;
+}
+.m-lang-select li.active a {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+.btn-close {
+  width: 2rem;
+  height: 2rem;
+  background: url(../img/btn_close_black02.svg) no-repeat 50%;
+}
 .m-gnb {
-  background: #ff5;
+  /* background: #ff5; */
+  margin-top: 5rem;
 }
 .m-gnb > li {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   padding: 1.5rem 0;
 }
 .m-gnb > li > strong {
@@ -318,9 +353,9 @@
   font-size: 2.1rem;
   color: var(--title-color);
   /* padding: 1rem 0; */
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   transition: 0.4s;
-  background: tomato;
+  /* background: tomato; */
 
   display: flex;
   justify-content: space-between;
@@ -328,14 +363,14 @@
 }
 
 .m-gnb > li.on > strong {
-  background: skyblue;
+  /* background: skyblue; */
 }
 
 .m-gnb > li > strong::after {
   content: '';
   display: block;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.6rem;
+  height: 0.6rem;
   border: solid #000;
   border-width: 2px 2px 0 0;
 
@@ -347,12 +382,27 @@
 }
 
 .m-gnb-sub {
-  margin-left: 4rem;
+  margin-left: 2rem;
+  margin-top: 3rem;
   display: none;
 }
+.m-gnb-sub li {
+  margin-bottom: 1.4rem;
+  padding: 0.4rem 0;
+}
+
 .m-gnb-sub li a {
   font-size: 1.8rem;
+  color: #555;
   line-height: 1.5;
+  line-height: 2rem;
+}
+
+.m-menu-banner {
+  margin-top: 3rem;
+  height: inherit;
+  width: 100%;
+  background: url(../img/m-menu-banner.png) no-repeat 0 0 / contain;
 }
 
 /* Section 001 : visual | 비주얼영역 */
@@ -386,7 +436,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .video iframe {
@@ -534,9 +584,9 @@
   flex: 1 1 30%;
 }
 
-.business-list li:not(:hover) {
+/* .business-list li:not(:hover) {
   flex: 1 1 17.5%;
-}
+} */
 
 .business-list li:hover::before {
   opacity: 1;
@@ -813,13 +863,39 @@
     width: 90.2344%;
   }
 
+  .submenu-wrap {
+    left: 4%;
+  }
+
+  .banner-slide {
+    right: 4%;
+  }
   .foot-menu ul {
     gap: 7rem;
   }
 }
 
+@media (max-width: 1300px) {
+  .submenu-wrap {
+    left: 3%;
+  }
+
+  .banner-slide {
+    right: 3%;
+  }
+  /* header sub menu의 글씨 조정 */
+  .submenu-wrap ul li dl dt {
+    font-size: 1.8rem;
+  }
+  .submenu-wrap ul li dl dd {
+    /* font-size: 1.4rem; */
+    font-size: 1.6rem;
+  }
+}
+
 /* 태블릿 디자인 */
-@media (max-width: 1024px) {
+/* 원래 1024px이었음 */
+@media (max-width: 1200px) {
   /* .inner,
   .inner-wide {
     width: 92.4rem;
@@ -882,7 +958,8 @@
 }
 
 /* 문제가 발생하는 해상도를 위한 분기 */
-@media (max-width: 1000px) {
+/* 원래 1000px이었음 */
+@media (max-width: 1200px) {
   #header nav {
     justify-content: space-between;
   }
@@ -970,6 +1047,14 @@
   }
   .visual-con h2 {
     font-size: 3rem;
+  }
+
+  .visual-con h2 b {
+    position: initial;
+  }
+  .visual-con h2 b::after {
+    left: 0;
+    bottom: -0.7rem;
   }
   .visual-con a {
     font-size: 1.3rem;
