@@ -297,7 +297,7 @@
   background: #fff;
   z-index: 100;
   height: 100vh; /* 뷰포트의 세로크기 전체 */
-  padding: 3rem 11.29%;
+  padding: 30px 11.29%;
 
   transform: translateX(100%);
   transition: 0.4s;
@@ -313,21 +313,21 @@
 .btn-left-wrap {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 12px;
   /* border: 1px solid #000; */
 }
 .btn-home {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 24px;
+  height: 24px;
   background: url(https://www.hwaseunggroup.com/kor/assets/img/common/icon_navi_home_black.svg) no-repeat 50% / contain;
 }
 .m-lang-select {
   display: flex;
-  gap: 1.2rem;
+  gap: 12px;
 }
 .m-lang-select li a {
   display: block;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 600;
   color: #bbbbbb;
 }
@@ -336,24 +336,24 @@
   border-bottom: 1px solid #000;
 }
 .btn-close {
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
   background: url(../img/btn_close_black02.svg) no-repeat 50%;
 }
 .m-gnb {
   /* background: #ff5; */
-  margin-top: 5rem;
+  margin-top: 50px;
 }
 .m-gnb > li {
   /* border: 1px solid #000; */
-  padding: 1.5rem 0;
+  padding: 15px 0;
 }
 .m-gnb > li > strong {
   font-weight: 700;
-  font-size: 2.1rem;
+  font-size: 21px;
   color: var(--title-color);
   /* padding: 1rem 0; */
-  padding: 1rem 0;
+  padding: 10px 0;
   transition: 0.4s;
   /* background: tomato; */
 
@@ -369,8 +369,8 @@
 .m-gnb > li > strong::after {
   content: '';
   display: block;
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 6px;
+  height: 6px;
   border: solid #000;
   border-width: 2px 2px 0 0;
 
@@ -382,24 +382,24 @@
 }
 
 .m-gnb-sub {
-  margin-left: 2rem;
-  margin-top: 3rem;
+  margin-left: 20px;
+  margin-top: 30px;
   display: none;
 }
 .m-gnb-sub li {
-  margin-bottom: 1.4rem;
-  padding: 0.4rem 0;
+  margin-bottom: 14px;
+  padding: 4px 0;
 }
 
 .m-gnb-sub li a {
-  font-size: 1.8rem;
+  font-size: 18px;
   color: #555;
   line-height: 1.5;
-  line-height: 2rem;
+  line-height: 20px;
 }
 
 .m-menu-banner {
-  margin-top: 3rem;
+  margin-top: 30px;
   height: inherit;
   width: 100%;
   background: url(../img/m-menu-banner.png) no-repeat 0 0 / contain;
@@ -1041,6 +1041,30 @@
     width: 1.7rem;
     height: 1.7rem;
   }
+  /* 모바일 sub menu
+
+  .m-lang-select {
+    gap: 0.8rem;
+  }
+  .m-lang-select li a {
+    font-size: 1.2rem;
+  }
+  .m-gnb > li {
+    padding: 0.8rem 0;
+  }
+  .m-gnb li strong {
+    font-size: 1.4rem;
+  }
+  .m-gnb-sub {
+    margin-top: 1.5rem;
+    margin-left: 1.2rem;
+  }
+  .m-gnb-sub li {
+    margin-bottom: 0.3rem;
+  }
+  .m-gnb .m-gnb-sub li a {
+    font-size: 1.2rem;
+  } */
 
   /* Section 001 : visual | 비주얼영역 */
   .visual {
