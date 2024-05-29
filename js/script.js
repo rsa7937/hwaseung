@@ -79,11 +79,16 @@ $(function () {
   // 윈도우의 스크롤값
   let scrollTop = $window.scrollTop();
   // 비주얼 영역의 세로크기 저장
-  const visualHeight = $('.visual').outerHeight();
   // console.log(scrollTop, visualHeight);
   setWhiteBackground();
 
+  // 윈도우 창의 크기를 다시 조절했을 때, 비주얼의 세로 크기를 다시 구해서 w-bg를 뿌림
+  $window.on('resize', setWhiteBackground);
+
   function setWhiteBackground() {
+    // 비주얼 값도 갱신이 필요함
+    // 외부에 있던 변수를 안으로 들여보냄
+    const visualHeight = $('.visual').outerHeight();
     if (scrollTop >= visualHeight) {
       $header.addClass('w-bg');
     } else {
@@ -109,5 +114,11 @@ $(function () {
     const linkValue = $(this).val();
 
     window.open(linkValue);
+  });
+
+  // AOS.js
+  AOS.init({
+    duration: 600,
+    offset: 100,
   });
 });

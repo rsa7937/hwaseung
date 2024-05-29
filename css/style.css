@@ -521,6 +521,7 @@
   width: 13rem;
   height: 1px;
   /* background: #9c9c9c; */
+  background: #000;
   margin-bottom: 0.5rem;
 }
 .sec-title p {
