@@ -1,5 +1,10 @@
 @charset 'utf-8';
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* Inner */
 .inner {
   width: 140rem;
@@ -305,7 +310,7 @@
 .m-submenu-wrap.active {
   transform: translateX(0%);
 }
-.btn-wrap {
+.m-submenu-wrap .btn-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -701,10 +706,162 @@
 .management {
   background: #f3f3f3;
   padding: 8rem 0 10rem;
+  height: 1100px;
+
+  position: relative;
 }
-.management-list {
-  background: tomato;
-  height: 36.8rem;
+
+.management-list-wrap {
+  /* background: #ff5; */
+  width: 2700px; /* slide 하나를 675px로 그리기 위해서(4개 배치) */
+  position: absolute;
+  top: 460px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.management-list-wrap .management-list {
+}
+.management-list-wrap .management-list .swiper-slide {
+  /* border: 1px solid #000; */
+  transition: 0.4s;
+}
+.management-list-wrap .management-list .swiper-slide-active {
+  margin-top: -120px;
+}
+
+.management-list-wrap .management-list .swiper-slide a {
+  display: block;
+  width: 600px;
+  height: 368px;
+  margin: 0 auto;
+  /* border: 1px solid #f00; */
+  position: relative;
+}
+
+.management-list-wrap .management-list .swiper-slide .badge {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  width: 180px;
+  /* width: 9.375%; */
+  /* height: 180px; */
+  /* height: 9.375%; */
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+
+  opacity: 0;
+}
+.management-list-wrap .management-list .swiper-slide-active .badge {
+  transition: 0.4s 0.2s;
+  opacity: 1;
+}
+
+.management-list-wrap .management-list .swiper-slide .badge.badge1 {
+  background: #039;
+}
+.management-list-wrap .management-list .swiper-slide .badge.badge2 {
+  background: #10a44b;
+}
+.management-list-wrap .management-list .swiper-slide .badge.badge3 {
+  background: #ff8e15;
+}
+.management-list-wrap .management-list .swiper-slide .badge.badge4 {
+  background: #fff;
+  color: #000;
+}
+/* .management-list-wrap .management-list .swiper-slide .badge::after {
+  content: '';
+  width: 20%;
+} */
+.management-list-wrap .btn-wrap {
+  /* background: skyblue; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+  display: flex;
+  width: 764px;
+  justify-content: space-between;
+}
+.management-list-wrap .btn-wrap button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #fff no-repeat 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.management-list-wrap .btn-wrap button.btn-prev {
+  background-image: url(../img/button_arrow_left.png);
+}
+.management-list-wrap .btn-wrap button.btn-next {
+  background-image: url(../img/button_arrow_right.png);
+}
+
+.swiper-pagination {
+  position: static;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #545454;
+  margin-right: 32px !important;
+  opacity: 1;
+  position: relative;
+}
+.swiper-pagination .swiper-pagination-bullet-active.swiper-pagination-bullet::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  border: 2px solid #545454;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.paging {
+  border: 1px solid #000;
+  position: absolute;
+  top: 50%;
+  top: 300px;
+  /* left: 50%; */
+  right: 30%;
+  /* transform: translate(-50%, -50%); */
+  z-index: 20;
+
+  display: flex;
+}
+
+.btn-control-wrap {
+  position: relative;
+}
+.btn-control-wrap button {
+  position: absolute;
+
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: no-repeat 50%;
+
+  z-index: 20;
+}
+.btn-control-wrap .btn-paused {
+  background-image: url(../img/button_slide_stop.png);
+}
+.btn-control-wrap .btn-play {
+  background-image: url(../img/button_slide_play.png);
+  display: none;
 }
 
 /* Section 005 : heritage | Heritage of Hwaseung */
@@ -896,7 +1053,7 @@
 
 /* 태블릿 디자인 */
 /* 원래 1024px이었음 */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   /* .inner,
   .inner-wide {
     width: 92.4rem;
@@ -916,6 +1073,37 @@
   /* Section 003 : pr | PR Room */
   .pr-list li {
     height: 33.2rem;
+  }
+
+  .management {
+    height: 107.4219vw;
+  }
+  .management-list-wrap {
+    width: 100%;
+    top: 50%;
+    transform: translate(-50%, -20%);
+  }
+  .management-list-wrap .management-list .swiper-slide-active {
+    margin-top: 0;
+  }
+
+  .management-list-wrap .management-list .swiper-slide a {
+    width: 77%;
+    height: auto;
+    aspect-ratio: 1/0.6133;
+  }
+
+  .management-list-wrap .management-list .swiper-slide a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .management-list-wrap .btn-wrap {
+    width: 97%;
+  }
+  .management-list-wrap .btn-wrap button {
+    width: 98px;
+    height: 98px;
   }
 
   /* Section 005 : heritage | Heritage of Hwaseung */
@@ -1009,6 +1197,16 @@
     margin-top: 3.8rem;
   }
 }
+/* 지속가능영역 슬라이더 위치조정 */
+@media (max-width: 850px) {
+  .management {
+    height: 140vw;
+  }
+  .management-list-wrap {
+    transform: translate(-50%, 0);
+  }
+}
+
 /*모바일 디자인 */
 @media (max-width: 700px) {
   :root {
@@ -1122,6 +1320,7 @@
   .pr-list li a {
     font-size: 1.4rem;
   }
+
   /* Section 005 : heritage | Heritage of Hwaseung */
   .heritage-con {
     width: 100%;
@@ -1187,5 +1386,9 @@
     bottom: -30px;
     left: 0;
     right: auto;
+  }
+
+  .management {
+    height: 110vw;
   }
 }

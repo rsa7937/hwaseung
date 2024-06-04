@@ -121,4 +121,38 @@ $(function () {
     duration: 600,
     offset: 100,
   });
+
+  // 지속가능경영 슬라이더
+  const managementList = new Swiper('.management-list', {
+    autoplay: {
+      delay: 3000,
+    },
+    slidesPerView: 1,
+    centeredSlides: true,
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.btn-next',
+      prevEl: '.btn-prev',
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 4, // 가로크기 675px을 위해 (2700 / 4)
+      },
+    },
+  });
+
+  $('.btn-control-wrap .btn-play').on('click', function () {
+    managementList.autoplay.start();
+    $(this).hide();
+    $('.btn-control-wrap .btn-paused').show();
+  });
+  $('.btn-control-wrap .btn-paused').on('click', function () {
+    managementList.autoplay.stop();
+    $(this).hide();
+    $('.btn-control-wrap .btn-play').show();
+  });
 });
