@@ -706,16 +706,21 @@ body {
 .management {
   background: #f3f3f3;
   padding: 8rem 0 10rem;
-  height: 1100px;
-
-  position: relative;
+  /* height: 1100px; */
+  box-sizing: content-box;
+  /* position: relative; */
 }
-
+.management-inner {
+  position: relative;
+  /* border: 1px solid #000; */
+  /* margin-top: 150px; */
+  margin-top: 12vw;
+}
 .management-list-wrap {
   /* background: #ff5; */
   width: 2700px; /* slide 하나를 675px로 그리기 위해서(4개 배치) */
   position: absolute;
-  top: 460px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -806,64 +811,99 @@ body {
   background-image: url(../img/button_arrow_right.png);
 }
 
-.swiper-pagination {
+/* Section 004. Management - Pagnation*/
+
+.pagination-wrap {
+  /* background: #ff5; */
+  /* border: 1px solid #000; */
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 600px;
+  justify-content: flex-end;
+
+  display: flex;
+  gap: 6px;
+}
+
+.pagination-wrap .swiper-pagination {
+  display: flex;
+  gap: 6px;
+
   position: static;
 }
 
-.swiper-pagination .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background: #545454;
-  margin-right: 32px !important;
-  opacity: 1;
-  position: relative;
-}
-.swiper-pagination .swiper-pagination-bullet-active.swiper-pagination-bullet::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 30px;
+.pagination-wrap .swiper-pagination .swiper-pagination-bullet {
+  width: 34px;
+  height: 34px;
+  border: 2px solid transparent;
   border-radius: 50%;
-
-  border: 2px solid #545454;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.paging {
-  border: 1px solid #000;
-  position: absolute;
-  top: 50%;
-  top: 300px;
-  /* left: 50%; */
-  right: 30%;
-  /* transform: translate(-50%, -50%); */
-  z-index: 20;
+  background: transparent;
+  opacity: 0.6;
 
   display: flex;
-}
+  justify-content: center;
+  align-items: center;
 
-.btn-control-wrap {
-  position: relative;
+  transition: 0.4s;
 }
-.btn-control-wrap button {
-  position: absolute;
-
+.pagination-wrap .swiper-pagination .swiper-pagination-bullet::after {
+  content: '';
   display: block;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+}
+.pagination-wrap .swiper-pagination .swiper-pagination-bullet-active {
+  border: 2px solid #000;
+}
+.pagination-wrap .controls {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+.pagination-wrap .controls button {
+  /* display: block; */
+  width: 34px;
+  height: 34px;
   background: no-repeat 50%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 
   z-index: 20;
 }
-.btn-control-wrap .btn-paused {
+.pagination-wrap .controls button.btn-pause {
   background-image: url(../img/button_slide_stop.png);
 }
-.btn-control-wrap .btn-play {
+.pagination-wrap .controls button.btn-play {
   background-image: url(../img/button_slide_play.png);
-  display: none;
+  /* display: none; */
 }
 
+.progress {
+  position: absolute;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 4px;
+  background: #fff;
+  position: relative;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--main-color);
+  width: 0%;
+  height: 100%;
+}
 /* Section 005 : heritage | Heritage of Hwaseung */
 .heritage {
   padding: 18rem 0 19rem;
@@ -1075,9 +1115,6 @@ body {
     height: 33.2rem;
   }
 
-  .management {
-    height: 107.4219vw;
-  }
   .management-list-wrap {
     width: 100%;
     top: 50%;
@@ -1104,6 +1141,15 @@ body {
   .management-list-wrap .btn-wrap button {
     width: 98px;
     height: 98px;
+  }
+
+  .progress {
+    bottom: -10px;
+    width: 77.03%;
+  }
+  .pagination-wrap {
+    bottom: -60px;
+    width: 77.03%;
   }
 
   /* Section 005 : heritage | Heritage of Hwaseung */
@@ -1199,11 +1245,11 @@ body {
 }
 /* 지속가능영역 슬라이더 위치조정 */
 @media (max-width: 850px) {
-  .management {
-    height: 140vw;
-  }
   .management-list-wrap {
     transform: translate(-50%, 0);
+  }
+  .pagination-wrap {
+    justify-content: center;
   }
 }
 
@@ -1386,9 +1432,5 @@ body {
     bottom: -30px;
     left: 0;
     right: auto;
-  }
-
-  .management {
-    height: 110vw;
   }
 }

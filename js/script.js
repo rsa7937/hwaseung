@@ -82,9 +82,6 @@ $(function () {
   // console.log(scrollTop, visualHeight);
   setWhiteBackground();
 
-  // 윈도우 창의 크기를 다시 조절했을 때, 비주얼의 세로 크기를 다시 구해서 w-bg를 뿌림
-  $window.on('resize', setWhiteBackground);
-
   function setWhiteBackground() {
     // 비주얼 값도 갱신이 필요함
     // 외부에 있던 변수를 안으로 들여보냄
@@ -95,6 +92,13 @@ $(function () {
       $header.removeClass('w-bg');
     }
   }
+
+  // 윈도우 창의 크기를 다시 조절했을 때, 비주얼의 세로 크기를 다시 구해서 w-bg를 뿌림
+  // $window.on('resize', setWhiteBackground);
+  $window.on('resize', function () {
+    setWhiteBackground();
+    setManagementHeight();
+  });
 
   // 스크롤 이벤트
   $window.on('scroll', function () {
@@ -125,7 +129,8 @@ $(function () {
   // 지속가능경영 슬라이더
   const managementList = new Swiper('.management-list', {
     autoplay: {
-      delay: 3000,
+      delay: 6000,
+      disableOnInteraction: false,
     },
     slidesPerView: 1,
     centeredSlides: true,
@@ -134,6 +139,7 @@ $(function () {
       el: '.swiper-pagination',
       clickable: true,
     },
+
     navigation: {
       nextEl: '.btn-next',
       prevEl: '.btn-prev',
@@ -143,16 +149,46 @@ $(function () {
         slidesPerView: 4, // 가로크기 675px을 위해 (2700 / 4)
       },
     },
+
+    on: {
+      autoplayTimeLeft(swiper, timeLeft, percentage) {
+        // console.log(timeLeft, percentage);
+        //timeLeft : 남은 시간(ms)
+        //percentage : 진행상태를 1~0사이의 값으로 표현
+        const percentageValue = (1 - percentage) * 100 + '%';
+        document.querySelector('.progress-bar').style.width = percentageValue;
+      },
+    },
   });
 
-  $('.btn-control-wrap .btn-play').on('click', function () {
-    managementList.autoplay.start();
-    $(this).hide();
-    $('.btn-control-wrap .btn-paused').show();
-  });
-  $('.btn-control-wrap .btn-paused').on('click', function () {
+  const $btnPause = $('.btn-pause');
+  const $btnPlay = $('.btn-play');
+  $btnPlay.hide();
+
+  $btnPause.on('click', function () {
     managementList.autoplay.stop();
     $(this).hide();
-    $('.btn-control-wrap .btn-play').show();
+    $btnPlay.show();
   });
+  $btnPlay.on('click', function () {
+    managementList.autoplay.start();
+    $(this).hide();
+    $btnPause.show();
+  });
+
+  // Section 004. Management | 지속가능영역의 세로 크기 결정
+
+  setManagementHeight();
+
+  function setManagementHeight() {
+    const titleHeight = $('.management  .sec-title').outerHeight();
+    const sliderHeight = $('.management-list-wrap').outerHeight();
+    const managementHeight = titleHeight + sliderHeight + 180;
+
+    console.log(titleHeight, sliderHeight, managementHeight);
+
+    $('.management').css({
+      height: `calc(${managementHeight}px + 12vw)`,
+    });
+  }
 });
