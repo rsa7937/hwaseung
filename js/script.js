@@ -157,6 +157,14 @@ $(function () {
         //percentage : 진행상태를 1~0사이의 값으로 표현
         const percentageValue = (1 - percentage) * 100 + '%';
         document.querySelector('.progress-bar').style.width = percentageValue;
+
+        // 원으로 진행률 표시
+        // setProperty -> jQuery에서 prop랑 같은 역할
+        // style의 property중 하나를 선택해서 값을 대입시킬 수 있음
+        // document.querySelector('.autoplay-progress svg').style.setProperty('--progress', 1 - percentage);
+        // ms를 1000으로 나눈 값을 ceil(올림해서 정수로 표현해라)
+        // document.querySelector('.autoplay-progress span').textContent = `${Math.ceil(timeLeft / 1000)}s`;
+        // document.querySelector('.autoplay-progress span').textContent = `${Math.ceil((1 - percentage) * 100)}%`;
       },
     },
   });
